@@ -7,7 +7,7 @@ public class Array {
    private int sizeArray;
    private Scanner reader;
 
-   // constructor por defecto
+   // constructor by defect.
    public Array() {
       this.array = new int[0];
       this.sizeArray = 0;
@@ -19,12 +19,12 @@ public class Array {
       return reader.nextInt();
    }
 
-   /*
-    1 leer el tamano
-    2 lo guardo ek tamano
-    3 crear array
-    4 rellenarlo
-     */
+   /* Steps:
+    1 Read size from user,
+    2 Save it in SizeArray,
+    3 Create temporal array,
+    4 Fill out the array.
+   */
    public void arrayMaker() {
       setSizeArray(getSizeArrayFromUser());
       int[] tempArray = new int[this.getSizeArray()];
@@ -37,98 +37,84 @@ public class Array {
       setArray(tempArray);
    }
 
+   //Example of method overloading, an array has been created as parameter in order to avoid potential modification of the user array.
+   public void arrayPrinter() {
+      // Reutilizacion de codigo: arrayPrinter(getArray())
+      String arrayToString = arrayPrinter(getArray());
+      System.out.println("Your array is made of: " + arrayToString);
+   }
 
-   /*
-   1 inicializa string para pintar
-   2 bucle para concatenar elementos del array en el string
-   3 pintar string final
+    /* Steps:
+   1 Initialize string to return it,
+   2 For loop to concatenate elements of array in String,
+   3 Return final string.
     */
-   public void ArrayPrinter() {
+   public static String arrayPrinter(int[] arrayToPrint) {
       String arrayToString = "[";
-      for (int i = 0; i < getSizeArray(); i++){
-         arrayToString = arrayToString + " " + array[i];
+      for (int i = 0; i < arrayToPrint.length; i++){
+         arrayToString = arrayToString + " " + arrayToPrint[i];
       }
       arrayToString = arrayToString + "]";
-      System.out.print("Your array is made of: " + arrayToString);
-}
+      return arrayToString;
+   }
 
-
-
-
-
+/* Steps:
+   1. Create a new variable to assign maximum value,
+   2. Compare the array elements,
+   3. Return max value.
+ */
    public int getMaxNumber() {
-      return 0;
+      int max = array[0];
+      for (int i= 0; i < array.length; ++i) {
+         int elementToCheck = array[i];
+         if (max < elementToCheck) {
+            max = elementToCheck;
+         }
+      }
+      return max;
    }
 
    public int getMinNumber() {
-      return 0;
+      int min = array[0];
+      for (int i= 0; i < array.length; ++i) {
+         int elementToCheck = array[i];
+         if (min > elementToCheck) {
+            min = elementToCheck;
+         }
+      }
+      return min;
    }
 
-   public int getOrderedIntergers() {
-      return 0;
-   }
+   // TODO
+    public int [] getOrderedArrayDescendent() {
+       return new int[0];
+    }
+
+    public int [] getOrderedArrayAscendent() {
+       return new int[0];
+    }
 
    public int getPrimeIntergers() {
       return 0;
    }
-
    public int getIntergersRepetiedAndTimesOfRepetition() {
       return 0;
    }
 
-
-
-
-
-
+   // Irrelevant methods below:
    public int getSizeArray() {
       return sizeArray;
    }
    public void setSizeArray(int sizeArray) {
       this.sizeArray = sizeArray;
    }
-   public int getArray() {
-      return sizeArray;
+   public int[] getArray() {
+      return array;
    }
    public void setArray(int[]array) {
       this.array = array;
    }
 }
-/*
-1 - Leer un array
-   a / leer el tamaño del array
-      1 buscar como leer del usuario.
-      2 pedir/solicitar/pregutnar/que te pregunte por pantalla el numero y leerlo
-      3 devolver lo que he leido
-   b / completar el array del tamaño indicado
-      1 necesito el tamaño. Se lo tengo que pasar por parametro
-      2 asignar tamaño al array
-      3 pedir al usuario que impute numeros HASTA QUE COMPLETE EL ARRAY
-      4 guardar el array.
-   c/ mostrar/pintarlo/... el array
-   d/ obtener maximo
-      1 ...
-      2 ...
-   e/ ....
-   ____________________________________________
-   1 - Leer un array
-   a / leer el tamaño del array
-      1 buscar como leer del usuario.
-      2 pedir/solicitar/pregutnar/que te pregunte por pantalla el numero y leerlo
-      3 devolver lo que he leido
-   b / completar el array del tamaño indicado
-      1 necesito el tamaño. Se lo tengo que pasar por parametro
-      2 asignar tamaño al array
-      3 pedir al usuario que impute numeros HASTA QUE COMPLETE EL ARRAY
-      4 return/devolver.
-   c/ set/get del atributo array
-   d/ mostrar/pintarlo/... el array
-   e/ ºobtener maximo
-   f/ ordernar de menor a mayor
-
-
-
- */
 
 
 
